@@ -21,5 +21,6 @@ app.get('/health-check', (req, res) => {
 // Routes:
 app.use('/auth', require('./src/routes/auth'));
 app.use('/pets', require('./src/routes/pets'));
+app.use('/clients', require('./src/routes/clients'));
 
 app.listen(3000, () => console.log('App is running!'));
