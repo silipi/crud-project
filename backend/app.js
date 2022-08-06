@@ -5,7 +5,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/crud-project');
 const app = express();
-const { authRoutes } = require('./src/routes');
 
 // Middleware:
 app.use(cors());
@@ -20,6 +19,7 @@ app.get('/health-check', (req, res) => {
 }); */
 
 // Routes:
-app.use('/auth', authRoutes);
+app.use('/auth', require('./src/routes/auth'));
+app.use('/pets', require('./src/routes/pets'));
 
 app.listen(3000, () => console.log('App is running!'));
